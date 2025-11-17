@@ -19,8 +19,16 @@ jobs:
         with:
           fetch-depth: 0
       
+      - name: Setup Node.js (if needed)
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
       - name: Install CML
-        run: npm install -g @iterative/cml
+        run: |
+          # Télécharger et installer le binaire CML (v2+)
+          curl -fsSL https://github.com/iterative/cml/releases/latest/download/cml-linux-amd64.tar.gz | tar -xz
+          sudo mv cml /usr/local/bin/
 
       # Étape 3: Setup Python
       - name: Setup Python
