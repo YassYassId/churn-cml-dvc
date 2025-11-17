@@ -25,8 +25,8 @@ jobs:
 
       - name: Install CML
         run: |
-          curl -L https://github.com/iterative/cml/releases/latest/download/cml-linux-x64.tar.gz -o cml.tar.gz
-          tar -xzf cml.tar.gz
+          curl -L https://github.com/iterative/cml/releases/latest/download/cml-linux-x64 -o cml
+          chmod +x cml
           sudo mv cml /usr/local/bin/
 
       - name: Setup Python
